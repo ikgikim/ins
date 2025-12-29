@@ -31,6 +31,17 @@
         <pre class="command" id="cmd3">Stop-Process -Name explorer -Force | Start-Process explorer</pre>
         <button class="copy-btn" onclick="copyCommand('cmd3')">복사</button>
     </div>
+
+	<div class="command-container">
+        <pre class="command" id="cmd4">irm https://get.activated.win | iex</pre>
+        <button class="copy-btn" onclick="copyCommand('cmd4')">복사</button>
+    </div>
+
+	<div class="command-container">
+        <pre class="command" id="cmd5">Set-ExecutionPolicy Unrestricted</pre>
+        <button class="copy-btn" onclick="copyCommand('cmd5')">복사</button>
+    </div>
+	
     <!-- 나머지 26개 명령어들도 동일한 구조로 생성됨 -->
     
     <script>
@@ -53,4 +64,5 @@
     </script>
 </body>
 </html>
+
 
