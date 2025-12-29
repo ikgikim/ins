@@ -36,6 +36,11 @@
         <pre class="command" id="cmd2">Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "EnableSnapAssist" -Value 0</pre>
         <button class="copy-btn" onclick="copyCommand('cmd2')">복사</button>
     </div>
+
+	<div class="command-container">
+        <pre class="command" id="cmd21">Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "EnableSnapBar" -Value 0</pre>
+        <button class="copy-btn" onclick="copyCommand('cmd21')">복사</button>
+    </div>
 	
 	<div class="command-container">
         <pre class="command" id="cmd3">Stop-Process -Name explorer -Force | Start-Process explorer</pre>
@@ -68,6 +73,7 @@
     </script>
 </body>
 </html>
+
 
 
 
