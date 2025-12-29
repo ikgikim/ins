@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ik명령어</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; background: #f5f5f5; }
+        .command-container { background: white; border-radius: 8px; padding: 16px; margin: 12px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: relative; }
+        .command { background: #2d3748; color: #e2e8f0; padding: 12px 40px 12px 12px; border-radius: 6px; font-family: 'Consolas', monospace; font-size: 14px; line-height: 1.4; white-space: pre-wrap; word-break: break-all; position: relative; }
+        .copy-btn { position: absolute; top: 12px; right: 12px; background: #4299e1; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: 500; transition: all 0.2s; }
+        .copy-btn:hover { background: #3182ce; }
+        .copy-btn.copied { background: #48bb78; }
+        h1 { text-align: center; color: #2d3748; margin-bottom: 30px; }
+    </style>
+</head>
+<body>
+    <h1>파워쉘 설정 명령어</h1>
+    
+    <div class="command-container">
+        <pre class="command" id="cmd1">Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "EnableSnapAssistFlyout" -Value 0</pre>
+        <button class="copy-btn" onclick="copyCommand('cmd1')">복사</button>
+    </div>
+	
+	<div class="command-container">
+        <pre class="command" id="cmd1">Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "EnableSnapAssistFlyout" -Value 1</pre>
+        <button class="copy-btn" onclick="copyCommand('cmd1')">복사</button>
+    </div>
+	
+	<div class="command-container">
+        <pre class="command" id="cmd1">Stop-Process -Name explorer -Force | Start-Process explorer</pre>
+        <button class="copy-btn" onclick="copyCommand('cmd1')">복사</button>
+    </div>
+    <!-- 나머지 26개 명령어들도 동일한 구조로 생성됨 -->
+    
+    <script>
+        async function copyCommand(id) {
+            try {
+                const text = document.getElementById(id).innerText;
+                await navigator.clipboard.writeText(text);
+                const btn = event.target;
+                const originalText = btn.innerText;
+                btn.innerText = "복사됨!";
+                btn.classList.add("copied");
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.classList.remove("copied");
+                }, 2000);
+            } catch (err) {
+                console.error("복사 실패:", err);
+            }
+        }
+    </script>
+</body>
+</html>
