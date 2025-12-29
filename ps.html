@@ -16,14 +16,24 @@
 </head>
 <body>
     <h1>파워쉘 설정 명령어</h1>
-    
+
+	<div class="command-container">
+        <pre class="command" id="cmd5">Set-ExecutionPolicy Unrestricted</pre>
+        <button class="copy-btn" onclick="copyCommand('cmd5')">복사</button>
+    </div>
+
+	<div class="command-container">
+        <pre class="command" id="cmd4">irm https://get.activated.win | iex</pre>
+        <button class="copy-btn" onclick="copyCommand('cmd4')">복사</button>
+    </div>
+	
     <div class="command-container">
         <pre class="command" id="cmd1">Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "EnableSnapAssistFlyout" -Value 0</pre>
         <button class="copy-btn" onclick="copyCommand('cmd1')">복사</button>
     </div>
 	
 	<div class="command-container">
-        <pre class="command" id="cmd2">Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "EnableSnapAssistFlyout" -Value 1</pre>
+        <pre class="command" id="cmd2">Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "EnableSnapAssist" -Value 0</pre>
         <button class="copy-btn" onclick="copyCommand('cmd2')">복사</button>
     </div>
 	
@@ -32,15 +42,9 @@
         <button class="copy-btn" onclick="copyCommand('cmd3')">복사</button>
     </div>
 
-	<div class="command-container">
-        <pre class="command" id="cmd4">irm https://get.activated.win | iex</pre>
-        <button class="copy-btn" onclick="copyCommand('cmd4')">복사</button>
-    </div>
+	
 
-	<div class="command-container">
-        <pre class="command" id="cmd5">Set-ExecutionPolicy Unrestricted</pre>
-        <button class="copy-btn" onclick="copyCommand('cmd5')">복사</button>
-    </div>
+	
 	
     <!-- 나머지 26개 명령어들도 동일한 구조로 생성됨 -->
     
@@ -64,5 +68,6 @@
     </script>
 </body>
 </html>
+
 
 
