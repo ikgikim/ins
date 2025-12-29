@@ -18,6 +18,13 @@
     <h1>Chocolatey 패키지 설치 명령어</h1>
 
     <div class="command-container">
+        <pre class="command" id="cmd1">Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))</pre>
+        <button class="copy-btn" onclick="copyCommand('cmd1')">복사</button>
+    </div>
+    
+
+    
+    <div class="command-container">
         <pre class="command" id="cmd1">choco install autohotkey -y</pre>
         <button class="copy-btn" onclick="copyCommand('cmd1')">복사</button>
     </div>
@@ -172,3 +179,4 @@
     </script>
 </body>
 </html>
+
