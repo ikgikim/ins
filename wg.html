@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ik명령어</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; background: #f5f5f5; }
+        .command-container { background: white; border-radius: 8px; padding: 16px; margin: 12px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: relative; }
+        .command { background: #2d3748; color: #e2e8f0; padding: 12px 40px 12px 12px; border-radius: 6px; font-family: 'Consolas', monospace; font-size: 14px; line-height: 1.4; white-space: pre-wrap; word-break: break-all; position: relative; }
+        .copy-btn { position: absolute; top: 12px; right: 12px; background: #4299e1; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: 500; transition: all 0.2s; }
+        .copy-btn:hover { background: #3182ce; }
+        .copy-btn.copied { background: #48bb78; }
+        h1 { text-align: center; color: #2d3748; margin-bottom: 30px; }
+    </style>
+</head>
+<body>
+    <h1>winget 설치 명령어</h1>
+    
+    <div class="command-container">
+        <pre class="command" id="cmd1">winget install Rizonesoft.Notepad3 --silent --accept-source-agreements --accept-package-agreements --source winget</pre>
+        <button class="copy-btn" onclick="copyCommand('cmd1')">복사</button>
+    </div>
+
+    <div class="command-container">
+        <pre class="command" id="cmd2">winget install AutoHotkey.AutoHotkey --silent --accept-source-agreements --accept-package-agreements --source winget</pre>
+        <button class="copy-btn" onclick="copyCommand('cmd2')">복사</button>
+    </div>
+
+    <div class="command-container">
+        <pre class="command" id="cmd3">winget install AIMP.AIMP --silent --accept-source-agreements --accept-package-agreements --source winget</pre>
+        <button class="copy-btn" onclick="copyCommand('cmd3')">복사</button>
+    </div>
+
+    <div class="command-container">
+        <pre class="command" id="cmd4">winget install Audacity.Audacity --silent --accept-source-agreements --accept-package-agreements --source winget</pre>
+        <button class="copy-btn" onclick="copyCommand('cmd4')">복사</button>
+    </div>
+
+    <div class="command-container">
+        <pre class="command" id="cmd5">winget install Bandisoft.Bandizip --silent --accept-source-agreements --accept-package-agreements --source winget</pre>
+        <button class="copy-btn" onclick="copyCommand('cmd5')">복사</button>
+    </div>
+
+    <div class="command-container">
+        <pre class="command" id="cmd6">winget install Brave.Brave --silent --accept-source-agreements --accept-package-agreements --source winget</pre>
+        <button class="copy-btn" onclick="copyCommand('cmd6')">복사</button>
+    </div>
+
+    <div class="command-container">
+        <pre class="command" id="cmd7">winget install Google.Chrome --silent --accept-source-agreements --accept-package-agreements --source winget</pre>
+        <button class="copy-btn" onclick="copyCommand('cmd7')">복사</button>
+    </div>
+
+    <div class="command-container">
+        <pre class="command" id="cmd8">winget install DuckDuckGo.DesktopBrowser --silent --accept-source-agreements --accept-package-agreements --source winget</pre>
+        <button class="copy-btn" onclick="copyCommand('cmd8')">복사</button>
+    </div>
+
+    <div class="command-container">
+        <pre class="command" id="cmd9">winget install voidtools.Everything --silent --accept-source-agreements --accept-package-agreements --source winget</pre>
+        <button class="copy-btn" onclick="copyCommand('cmd9')">복사</button>
+    </div>
+
+    <div class="command-container">
+        <pre class="command" id="cmd10">winget install Daum.PotPlayer --silent --accept-source-agreements --accept-package-agreements --source winget</pre>
+        <button class="copy-btn" onclick="copyCommand('cmd10')">복사</button>
+    </div>
+
+    <div class="command-container">
+        <pre class="command" id="cmd11">winget install Telegram.TelegramDesktop --silent --accept-source-agreements --accept-package-agreements --source winget</pre>
+        <button class="copy-btn" onclick="copyCommand('cmd11')">복사</button>
+    </div>
+
+    <div class="command-container">
+        <pre class="command" id="cmd12">winget install Kakao.KakaoTalk --silent --accept-source-agreements --accept-package-agreements --source winget</pre>
+        <button class="copy-btn" onclick="copyCommand('cmd12')">복사</button>
+    </div>
+
+    <div class="command-container">
+        <pre class="command" id="cmd13">winget install AppWork.JDownloader --silent --accept-source-agreements --accept-package-agreements --source winget</pre>
+        <button class="copy-btn" onclick="copyCommand('cmd13')">복사</button>
+    </div>
+
+    <div class="command-container">
+        <pre class="command" id="cmd14">winget install Notepad++.Notepad++ --silent --accept-source-agreements --accept-package-agreements --source winget</pre>
+        <button class="copy-btn" onclick="copyCommand('cmd14')">복사</button>
+    </div>
+
+    <div class="command-container">
+        <pre class="command" id="cmd15">winget install Obsidian.Obsidian --silent --accept-source-agreements --accept-package-agreements --source winget</pre>
+        <button class="copy-btn" onclick="copyCommand('cmd15')">복사</button>
+    </div>
+
+    <div class="command-container">
+        <pre class="command" id="cmd16">winget install Microsoft.VisualStudioCode --silent --accept-source-agreements --accept-package-agreements --source winget</pre>
+        <button class="copy-btn" onclick="copyCommand('cmd16')">복사</button>
+    </div>
+
+    <div class="command-container">
+        <pre class="command" id="cmd17">winget install SMPlayer.SMPlayer --silent --accept-source-agreements --accept-package-agreements --source winget</pre>
+        <button class="copy-btn" onclick="copyCommand('cmd17')">복사</button>
+    </div>
+
+    <div class="command-container">
+        <pre class="command" id="cmd18">winget install Valve.Steam --silent --accept-source-agreements --accept-package-agreements --source winget</pre>
+        <button class="copy-btn" onclick="copyCommand('cmd18')">복사</button>
+    </div>
+
+    <div class="command-container">
+        <pre class="command" id="cmd19">winget install EpicGames.EpicGamesLauncher --silent --accept-source-agreements --accept-package-agreements --source winget</pre>
+        <button class="copy-btn" onclick="copyCommand('cmd15')">복사</button>
+    </div>
+
+    <div class="command-container">
+        <pre class="command" id="cmd20">winget install Python.Python.3.14 --silent --accept-source-agreements --accept-package-agreements --source winget</pre>
+        <button class="copy-btn" onclick="copyCommand('cmd20')">복사</button>
+    </div>
+
+    <div class="command-container">
+        <pre class="command" id="cmd21">winget install Python.Python.3.8 --silent --accept-source-agreements --accept-package-agreements --source winget</pre>
+        <button class="copy-btn" onclick="copyCommand('cmd21')">복사</button>
+    </div>
+
+    <div class="command-container">
+        <pre class="command" id="cmd22">winget install Proton.ProtonVPN --silent --accept-source-agreements --accept-package-agreements --source winget</pre>
+        <button class="copy-btn" onclick="copyCommand('cmd22')">복사</button>
+    </div>
+
+    <div class="command-container">
+        <pre class="command" id="cmd23">winget install qBittorrent.qBittorrent --silent --accept-source-agreements --accept-package-agreements --source winget</pre>
+        <button class="copy-btn" onclick="copyCommand('cmd23')">복사</button>
+    </div>
+
+    <div class="command-container">
+        <pre class="command" id="cmd24">winget install Ditto.Ditto --silent --accept-source-agreements --accept-package-agreements --source winget</pre>
+        <button class="copy-btn" onclick="copyCommand('cmd24')">복사</button>
+    </div>
+
+    <div class="command-container">
+        <pre class="command" id="cmd25">winget install Microsoft.PowerToys --silent --accept-source-agreements --accept-package-agreements --source winget</pre>
+        <button class="copy-btn" onclick="copyCommand('cmd25')">복사</button>
+    </div>
+
+    <div class="command-container">
+        <pre class="command" id="cmd26">winget install 7zip.7zip --silent --accept-source-agreements --accept-package-agreements --source winget</pre>
+        <button class="copy-btn" onclick="copyCommand('cmd26')">복사</button>
+    </div>
+    
+    <script>
+        async function copyCommand(id) {
+            try {
+                const text = document.getElementById(id).innerText;
+                await navigator.clipboard.writeText(text);
+                const btn = event.target;
+                const originalText = btn.innerText;
+                btn.innerText = "복사됨!";
+                btn.classList.add("copied");
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.classList.remove("copied");
+                }, 2000);
+            } catch (err) {
+                console.error("복사 실패:", err);
+            }
+        }
+    </script>
+</body>
+</html>
