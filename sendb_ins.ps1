@@ -13,5 +13,5 @@ $apps = @(
 
 foreach ($app in $apps) {
     Write-Host "Installing $app ..."
-    winget install --id $app --silent --accept-package-agreements --accept-source-agreements
+    winget install --id $app --silent --accept-package-agreements --accept-source-agreements --source winget
 }
