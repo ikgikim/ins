@@ -1,0 +1,12 @@
+{
+  "WinGet": {
+    "Sources": [
+      { "Package": "TorProject.TorBrowser" },
+      { "Package": "Rizonesoft.Notepad3" },
+      { "Package": "7zip.7zip" }
+	  { "Package": "Ditto.Ditto" }
+	  { "Package": "SMPlayer.SMPlayer" }
+	  { "Package": "DuckDuckGo.DesktopBrowser" }
+	]
+  }
+}
