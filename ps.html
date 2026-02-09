@@ -6,12 +6,64 @@
     <title>ik명령어</title>
     <style>
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; background: #f5f5f5; }
-        .command-container { background: white; border-radius: 8px; padding: 16px; margin: 12px 0; box-shadow: 0 2px 4px rgba(0,0,0,0.1); position: relative; }
-        .command { background: #2d3748; color: #e2e8f0; padding: 12px 40px 12px 12px; border-radius: 6px; font-family: 'Consolas', monospace; font-size: 14px; line-height: 1.4; white-space: pre-wrap; word-break: break-all; position: relative; }
-        .copy-btn { position: absolute; top: 12px; right: 12px; background: #4299e1; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: 500; transition: all 0.2s; }
-        .copy-btn:hover { background: #3182ce; }
-        .copy-btn.copied { background: #48bb78; }
         h1 { text-align: center; color: #2d3748; margin-bottom: 30px; }
+
+        .command-container { 
+            background: white; 
+            border-radius: 8px; 
+            padding: 16px; 
+            margin: 12px 0; 
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+            display: flex;
+            flex-direction: column; /* 세로 정렬 */
+        }
+
+        .command-wrapper {
+            position: relative;
+            background: #2d3748;
+            border-radius: 6px;
+            padding: 12px 12px 28px 12px; /* 하단 small 태그 자리를 위해 padding-bottom 확보 */
+        }
+
+        .command { 
+            color: #e2e8f0; 
+            font-family: 'Consolas', monospace; 
+            font-size: 14px; 
+            line-height: 1.4; 
+            white-space: pre-wrap; 
+            word-break: break-all; 
+            margin: 0; /* 기본 마진 제거 */
+        }
+
+        /* 설명 텍스트를 커맨드 박스 왼쪽 하단에 바짝 붙임 */
+        .description {
+            position: absolute;
+            bottom: 6px;
+            left: 12px;
+            color: #a0aec0;
+            font-size: 11px;
+            font-weight: normal;
+        }
+
+        .copy-btn { 
+            position: absolute; 
+            top: 12px; 
+            right: 12px; 
+            background: #4299e1; 
+            color: white; 
+            border: none; 
+            padding: 6px 12px; 
+            border-radius: 4px; 
+            cursor: pointer; 
+            font-size: 12px; 
+            font-weight: 500; 
+            transition: all 0.2s; 
+            z-index: 10;
+        }
+
+        .copy-btn:hover { background: #3182ce; }
+        /* 복사 완료 시 스타일 */
+        .copy-btn.copied { background: #48bb78; }
     </style>
 </head>
 <body>
@@ -20,7 +72,7 @@
 	<div class="command-container">
         <pre class="command" id="cmd5">Set-ExecutionPolicy Unrestricted</pre>
         <button class="copy-btn" onclick="copyCommand('cmd5')">복사</button>
-		<small>스크립트 실행정책</small>
+		<span class="description">스크립트 실행정책</span>
     </div>
 
 	<div class="command-container">
@@ -95,6 +147,7 @@
     </script>
 </body>
 </html>
+
 
 
 
