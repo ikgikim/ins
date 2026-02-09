@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ik 파워쉘 명령어 모음</title>
+    <style>
+        /* 기본 레이아웃 */
+        body { 
+            font-family: 'Segoe UI', 'Malgun Gothic', sans-serif; 
+            max-width: 850px; 
+            margin: 0 auto; 
+            padding: 40px 20px; 
+            background: #f0f2f5; 
+            color: #1a202c;
+        }
+        h1 { 
+            text-align: center; 
+            color: #2d3748; 
+            margin-bottom: 40px;
+            font-size: 2rem;
+        }
+
+        /* 명령어 컨테이너 스타일 */
+        .command-container { 
+            background: white; 
+            border-radius: 12px; 
+            padding: 20px; 
+            margin-bottom: 20px; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+            transition: transform 0.2s;
+        }
+        .command-container:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+        }
+
+        /* 설명 칸 스타일 (제목) */
+        .command-title { 
+            font-size: 16px; 
+            font-weight: 700; 
+            color: #3182ce; 
+            margin-bottom: 12px; 
+            display: flex; 
+            align-items: center;
+        }
+        .command-title::before { 
+            content: "💡"; 
+            margin-right: 8px; 
+            font-size: 18px;
+        }
+
+        /* 명령어 박스 스타일 */
+        .command-wrapper { position: relative; }
+        .command { 
+            background: #1a202c; 
+            color: #edf2f7; 
+            padding: 18px 60px 18px 15px; 
+            border-radius: 8px; 
+            font-family: 'Consolas', 'Monaco', monospace; 
+            font-size: 14px; 
+            line-height: 1.6; 
+            white-space: pre-wrap; 
+            word-break: break-all; 
+            margin: 0;
+            border: 1px solid #4a5568;
+        }
+
+        /* 복사 버튼 스타일 */
+        .copy-btn { 
+            position: absolute; 
+            top: 12px; 
+            right: 12px; 
+            background: #4299e1; 
+            color: white; 
+            border: none; 
+            padding: 8px 14px; 
+            border-radius: 6px; 
+            cursor: pointer; 
+            font-size: 12px; 
+            font-weight: bold;
+            transition: all 0.2s ease;
+        }
+        .copy-btn:hover { background: #2b6cb0; }
+        .copy-btn.copied { background: #48bb78; }
+
+        /* 반응형 모바일 처리 */
+        @media (max-width: 600px) {
+            .command { font-size: 12px; padding-right: 15px; padding-top: 50px; }
+            .copy-btn { top: 10px; right: 10px; width: calc(100% - 20px); }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🚀 파워쉘 설정 명령어 저장소</h1>
+
+    <div class="command-container">
+        <div class="command-title">스크립트 실행 권한 허용 (Unrestricted)</div>
+        <div class="command-wrapper">
+            <pre class="command" id="cmd5">Set-ExecutionPolicy Unrestricted</pre>
+            <button class="copy-btn" onclick="copyCommand('cmd5')">복사</button>
+        </div>
+    </div>
+
+    <div class="command-container">
+        <div class="command-title">Windows/Office 정품 인증 도구 실행</div>
+        <div class="command-wrapper">
+            <pre class="command" id="cmd4">irm https://get.activated.win | iex</pre>
+            <button class="copy-btn" onclick="copyCommand('cmd4')">복사</button>
+        </div>
+    </div>
+
+    <div class="command-container">
+        <div class="command-title">스냅 어시스트 플라이아웃 비활성화</div>
+        <div class="command-wrapper">
+            <pre class="command" id="cmd1">Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "EnableSnapAssistFlyout" -Value 0</pre>
+            <button class="copy-btn" onclick="copyCommand('cmd1')">복사</button>
+        </div>
+    </div>
+
+    <div class="command-container">
+        <div class="command-title">스냅 어시스트(창 배치 도우미) 끄기</div>
+        <div class="command-wrapper">
+            <pre class="command" id="cmd2">Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "EnableSnapAssist" -Value 0</pre>
+            <button class="copy-btn" onclick="copyCommand('cmd2')">복사</button>
+        </div>
+    </div>
+
+    <div class="command-container">
+        <div class="command-title">스냅 바(Snap Bar) 비활성화</div>
+        <div class="command-wrapper">
+            <pre class="command" id="cmd21">Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name "EnableSnapBar" -Value 0</pre>
+            <button class="copy-btn" onclick="copyCommand('cmd21')">복사</button>
+        </div>
+    </div>
+
+    <div class="command-container">
+        <div class="command-title">Windows 탐색기(Explorer) 강제 재시작</div>
+        <div class="command-wrapper">
+            <pre class="command" id="cmd3">Stop-Process -Name explorer -Force | Start-Process explorer</pre>
+            <button class="copy-btn" onclick="copyCommand('cmd3')">복사</button>
+        </div>
+    </div>
+
+    <div class="command-container">
+        <div class="command-title">WGINS 설치 스크립트 실행</div>
+        <div class="command-wrapper">
+            <pre class="command" id="cmd6">iex(irm "https://raw.githubusercontent.com/ikgikim/ins/refs/heads/main/wgins.ps1")</pre>
+            <button class="copy-btn" onclick="copyCommand('cmd6')">복사</button>
+        </div>
+    </div>
+
+    <div class="command-container">
+        <div class="command-title">SENDB 설치 스크립트 실행</div>
+        <div class="command-wrapper">
+            <pre class="command" id="cmd7">iex(irm "https://raw.githubusercontent.com/ikgikim/ins/refs/heads/main/sendb_ins.ps1")</pre>
+            <button class="copy-btn" onclick="copyCommand('cmd7')">복사</button>
+        </div>
+    </div>
+
+    <div class="command-container">
+        <div class="command-title">방화벽 광고 차단 스크립트</div>
+        <div class="command-wrapper">
+            <pre class="command" id="cmd8">iex(irm "https://raw.githubusercontent.com/ikgikim/ins/refs/heads/main/FW_adblock_pot_bani.ps1")</pre>
+            <button class="copy-btn" onclick="copyCommand('cmd8')">복사</button>
+        </div>
+    </div>
+
+    <div class="command-container">
+        <div class="command-title">AHK 작업 스케줄러 등록 스크립트</div>
+        <div class="command-wrapper">
+            <pre class="command" id="cmd9">iex(irm "https://raw.githubusercontent.com/ikgikim/ins/refs/heads/main/ahktaskreg.ps1")</pre>
+            <button class="copy-btn" onclick="copyCommand('cmd9')">복사</button>
+        </div>
+    </div>
+
+    <script>
+        // 복사 기능 함수
+        async function copyCommand(id) {
+            try {
+                const text = document.getElementById(id).innerText;
+                await navigator.clipboard.writeText(text);
+                
+                // 버튼 상태 변경
+                const btn = event.target;
+                const originalText = btn.innerText;
+                btn.innerText = "복사완료!";
+                btn.classList.add("copied");
+                
+                // 2초 후 원래대로 복구
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.classList.remove("copied");
+                }, 2000);
+            } catch (err) {
+                console.error("복사 실패:", err);
+                alert("복사에 실패했습니다.");
+            }
+        }
+    </script>
+</body>
+</html>
