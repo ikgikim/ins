@@ -66,8 +66,13 @@
         <pre class="command" id="cmd9">iex(irm "https://raw.githubusercontent.com/ikgikim/ins/refs/heads/main/ahktaskreg.ps1")</pre>
         <button class="copy-btn" onclick="copyCommand('cmd9')">복사</button>
     </div>
-	
-    <!-- 나머지 26개 명령어들도 동일한 구조로 생성됨 -->
+
+	<div class="command-container">
+        <pre class="command" id="cmd10">Invoke-WebRequest -Uri "https://gist.githubusercontent.com/ikgikim/0cecab80889f092eb5b295f3a0b288c5/raw/43efd4ea518409016ae255d4f4abc20030950571/ikv2.ahk" -OutFile "C:\iks\ikv2.ahk"")</pre>
+        <button class="copy-btn" onclick="copyCommand('cmd10')">복사</button>
+    </div>
+		
+	<!-- 나머지 26개 명령어들도 동일한 구조로 생성됨 -->
     
     <script>
         async function copyCommand(id) {
@@ -89,6 +94,7 @@
     </script>
 </body>
 </html>
+
 
 
 
