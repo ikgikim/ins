@@ -78,7 +78,7 @@
     </div>
 
 	<div class="command-container">
-        <pre class="command" id="cmd10">curl.exe "https://ghins.iks0423.workers.dev/ikv2.ahk" -o "C:\iks\ikv2.ahk"</pre>
+        <pre class="command" id="cmd10">Invoke-WebRequest -Uri "https://ghins.iks0423.workers.dev/ikv2.ahk" -OutFile "C:\iks\ikv2.ahk" -Encoding utf8</pre>
         <button class="copy-btn" onclick="copyCommand('cmd10')">복사</button>
 		<small> AHK 스크립트 다운</small>
     </div>
@@ -105,6 +105,7 @@
     </script>
 </body>
 </html>
+
 
 
 
