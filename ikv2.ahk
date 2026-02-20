@@ -12,6 +12,7 @@ if !A_IsAdmin { ;관리자모드로 실행
 
 ^#e::Edit() ;스크립트 수정
 
+
 ^#!u::{
     file := "c:\iks\ikv2.ahk"
     cmd := 'curl.exe -X PUT "https://ghins.iks0423.workers.dev/ikv2.ahk" --data-binary @"' . file . '"'
@@ -25,6 +26,9 @@ if !A_IsAdmin { ;관리자모드로 실행
     Sleep(50)
     Send("{Backspace}")
 }
+
+F15::Send "{PgUp}" ;페이지업
+F18::Send "{PgDn}" ;페이지다운
 
 ^#/:: !d ;주소창바로가기
 
@@ -91,6 +95,11 @@ if !A_IsAdmin { ;관리자모드로 실행
 ^#n::WinExist("ahk_exe notepad.exe") ? WinActivate() : Run("notepad.exe") ;메모장
 ^#!n::WinExist("ahk_exe notepad++.exe") ? WinActivate() : Run("notepad++.exe") ;노트뿔뿔
 #!g::WinExist("ahk_exe mspaint.exe") ? WinActivate() : Run("mspaint.exe") ;그림판
+#!b::WinExist("ahk_exe Bitwarden.exe") ? WinActivate() : Run("C:\Program Files\Bitwarden\Bitwarden.exe") ;비트워든
+#!p::Run("C:\Program Files\AutoHotkey\WindowSpy.ahk") ;윈스파이
+#!c::WinExist("ahk_exe code.exe") ? WinActivate() : Run("C:\Users\home\AppData\Local\Programs\Microsoft VS Code\Code.exe") ;vsCode
+^+F12::WinExist("ahk_exe auto_keyboard.exe") ? WinActivate() : Run("C:\COIDEA smart keyboard\auto_keyboard.exe") ;매크로키보드설정
+
 
 ;웹사이트바로가기(윈ALT)
 #!home::Run("https://google.com") ;구글검색
