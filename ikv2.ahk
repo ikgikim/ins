@@ -81,6 +81,7 @@ F18::Send "{PgDn}" ;페이지다운
 ^#numpad1::WinExist("ahk_exe chrome.exe") ? WinActivate() : Run("chrome.exe") ;크롬실행
 
 ^#numpad2::WinExist("ahk_exe brave.exe") ? WinActivate() : Run("brave.exe") ;브레이브실행
+^#b::WinExist("ahk_exe brave.exe") ? WinActivate() : Run("brave.exe") ;브레이브실행
 
 ^#numpad3::WinExist("ahk_exe duckduckgo.exe") ? WinActivate() : Run("duckduckgo.exe") ;덕덕고실행
 
@@ -91,6 +92,9 @@ F18::Send "{PgDn}" ;페이지다운
 ^#t::WinExist("ahk_exe telegram.exe") ? WinActivate() : Run("C:\Users\home\AppData\Roaming\Telegram Desktop\Telegram.exe") ;텔레그램실행
 
 ^#k::WinExist("ahk_exe kakaoTalk.exe") ? WinActivate() : Run("C:\Program Files (x86)\Kakao\KakaoTalk\KakaoTalk.exe") ;카톡
+
+^#!p::WinExist("ahk_exe potplayer64.exe") ? WinActivate() : Run("C:\Program Files\DAUM\PotPlayer\PotPlayer64.exe") ;팟플레이어
+
 
 ^#n::WinExist("ahk_exe notepad.exe") ? WinActivate() : Run("notepad.exe") ;메모장
 ^#!n::WinExist("ahk_exe notepad++.exe") ? WinActivate() : Run("notepad++.exe") ;노트뿔뿔
