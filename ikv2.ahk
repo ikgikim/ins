@@ -100,7 +100,10 @@ F18::Send "{PgDn}" ;페이지다운
 ^#!n::WinExist("ahk_exe notepad++.exe") ? WinActivate() : Run("notepad++.exe") ;노트뿔뿔
 #!g::WinExist("ahk_exe mspaint.exe") ? WinActivate() : Run("mspaint.exe") ;그림판
 #!b::WinExist("ahk_exe Bitwarden.exe") ? WinActivate() : Run("C:\Program Files\Bitwarden\Bitwarden.exe") ;비트워든
-#!p::Run("C:\Program Files\AutoHotkey\WindowSpy.ahk") ;윈스파이
+
+^#!a::Run("C:\Program Files\AutoHotkey\WindowSpy.ahk") ;윈스파이
+#!p::WinExist("ahk_exe powerpnt.exe") ? WinActivate() : Run("C:\Program Files\Microsoft Office\root\Office16\POWERPNT.EXE") ;파워포인트
+
 #!c::WinExist("ahk_exe code.exe") ? WinActivate() : Run("C:\Users\home\AppData\Local\Programs\Microsoft VS Code\Code.exe") ;vsCode
 ^+F12::WinExist("ahk_exe auto_keyboard.exe") ? WinActivate() : Run("C:\COIDEA smart keyboard\auto_keyboard.exe") ;매크로키보드설정
 
@@ -391,6 +394,31 @@ CloseGui() {
         MsgBox("종료 완료.")
     } catch as err {
         MsgBox("WMI 오류: " . err.Message . "`n관리자 권한으로 실행하세요.")
+    }
+}
+
+getSlideShowWin() {
+    ; 슬라이드 쇼 창은 ahk_class screenClass
+    hwnd := WinExist("ahk_class screenClass")
+    return hwnd ? hwnd : 0
+}
+
+!Right:: { ; → 키로 다음 슬라이드
+    hwnd := getSlideShowWin()
+    if (hwnd) {
+        ; Alt+Right 조합 전달
+        ControlSend("{Right}", , hwnd)
+    } else {
+        Send("{Right}")
+    }
+}
+
+!Left:: { ; ← 키로 이전 슬라이드
+    hwnd := getSlideShowWin()
+    if (hwnd) {
+        ControlSend("{Left}", , hwnd)
+    } else {
+        Send("{Left}")
     }
 }
 
