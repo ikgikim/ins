@@ -46,6 +46,8 @@ F18::Send "{PgDn}" ;페이지다운
 
 ^!Down::Send "^f4" ;프로그램종료
 
+^#!Down::Run("E:\DATAS\5.프로그램\필수유틸\iktools\CloseAll.exe") ;CloseAllRun
+
 ^XButton1::Send("^w") ;마우스창닫기
 
 ^XButton2::Send("^n") ;마우스새창
@@ -59,7 +61,7 @@ F18::Send "{PgDn}" ;페이지다운
 
 ^Esc::Run(A_WinDir "\System32\rundll32.exe powrprof.dll SetSuspendState") ;절전작동
 
-^#!down::DllCall("SendMessage", "ptr", 0xFFFF, "uint", 0x112, "ptr", 0xF170, "ptr", 2) ;모니터만 끈다
+#!down::DllCall("SendMessage", "ptr", 0xFFFF, "uint", 0x112, "ptr", 0xF170, "ptr", 2) ;모니터만 끈다
 
 
 ^#numpad7::{ ; 창크기640640
@@ -79,6 +81,7 @@ F18::Send "{PgDn}" ;페이지다운
 
 ;브라우저 포커싱
 ^#numpad1::WinExist("ahk_exe chrome.exe") ? WinActivate() : Run("chrome.exe") ;크롬실행
+^#c::WinExist("ahk_exe chrome.exe") ? WinActivate() : Run("chrome.exe") ;크롬실행
 
 ^#numpad2::WinExist("ahk_exe brave.exe") ? WinActivate() : Run("brave.exe") ;브레이브실행
 ^#b::WinExist("ahk_exe brave.exe") ? WinActivate() : Run("brave.exe") ;브레이브실행
