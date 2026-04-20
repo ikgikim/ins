@@ -155,7 +155,6 @@ MouseClick("Left", 600, 600)
 
 #HotIf WinActive('ahk_exe duckduckgo.exe')
 ~LButton & RButton::Send ("^w") ;Duckduckgo
-XButton2::Send("^t") ;Duckduckgo
 #HotIf
 
 #HotIf WinActive('ahk_exe MonsterHunterWorld.exe')
