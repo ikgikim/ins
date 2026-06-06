@@ -21,11 +21,6 @@ if !A_IsAdmin { ;관리자모드로 실행
 
 +Space::Send("{VK15}")   ; 한/영 키 직접 전송
 
-+Backspace::{ ;한줄전체삭제
-    Send("+{Home}")
-    Sleep(50)
-    Send("{Backspace}")
-}
 
 F15::Send "{PgUp}" ;페이지업
 F18::Send "{PgDn}" ;페이지다운
@@ -53,6 +48,15 @@ F18::Send "{PgDn}" ;페이지다운
 ^XButton2::Send("^n") ;마우스새창
 
 ^!XButton1::Send("!{F4}") ;마우스강종
+
+XButton1::
+{
+    static t := 0
+    if (A_TickCount - t > 1000) {
+        Send "{Browser_Back}"
+        t := A_TickCount
+    }
+}
 
 !WheelUp::Send "{PgUp}" ;Alt + WheelUp → PageUp
 
@@ -97,6 +101,8 @@ F18::Send "{PgDn}" ;페이지다운
 ^#k::WinExist("ahk_exe kakaoTalk.exe") ? WinActivate() : Run("C:\Program Files (x86)\Kakao\KakaoTalk\KakaoTalk.exe") ;카톡
 
 ^#!p::WinExist("ahk_exe potplayer64.exe") ? WinActivate() : Run("C:\Program Files\DAUM\PotPlayer\PotPlayer64.exe") ;팟플레이어
+#!l::WinExist("ahk_exe vlc.exe") ? WinActivate() : Run("C:\Program Files\VideoLAN\VLC\vlc.exe") ;vlc
+
 
 
 ^#n::WinExist("ahk_exe notepad.exe") ? WinActivate() : Run("notepad.exe") ;메모장
@@ -105,7 +111,7 @@ F18::Send "{PgDn}" ;페이지다운
 #!b::WinExist("ahk_exe Bitwarden.exe") ? WinActivate() : Run("C:\Program Files\Bitwarden\Bitwarden.exe") ;비트워든
 
 ^#!a::Run("C:\Program Files\AutoHotkey\WindowSpy.ahk") ;윈스파이
-#!p::WinExist("ahk_exe powerpnt.exe") ? WinActivate() : Run("C:\Program Files\Microsoft Office\root\Office16\POWERPNT.EXE") ;파워포인트
+#!p::WinExist("ahk_exe powerpnt.exe") ? WinActivate("슬라이드") : Run("C:\Program Files\Microsoft Office\root\Office16\POWERPNT.EXE") ;파워포인트
 
 #!c::WinExist("ahk_exe code.exe") ? WinActivate() : Run("C:\Users\home\AppData\Local\Programs\Microsoft VS Code\Code.exe") ;vsCode
 ^+F12::WinExist("ahk_exe auto_keyboard.exe") ? WinActivate() : Run("C:\COIDEA smart keyboard\auto_keyboard.exe") ;매크로키보드설정
@@ -166,6 +172,7 @@ MouseClick("Left", 600, 600)
 !2::Send("{Numpad6}") ;MonsterHunterWorld
 !3::Send("{Numpad7}") ;MonsterHunterWorld
 !4::Send("{Numpad8}") ;MonsterHunterWorld
+MButton::Send("{Esc}")
 #HotIf
 
 #HotIf WinActive('ahk_exe Warframe.x64.exe')
