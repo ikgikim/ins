@@ -125,7 +125,20 @@ XButton1::
 #!b::WinExist("ahk_exe Bitwarden.exe") ? WinActivate() : Run("C:\Program Files\Bitwarden\Bitwarden.exe") ;비트워든
 
 ^#!a::Run("C:\Program Files\AutoHotkey\WindowSpy.ahk") ;윈스파이
-#!p::WinExist("ahk_exe powerpnt.exe") ? WinActivate("슬라이드") : Run("C:\Program Files\Microsoft Office\root\Office16\POWERPNT.EXE") ;파워포인트
+
+
+#!p::{
+try {
+    if WinExist("ahk_exe powerpnt.exe") {
+        ; 파워포인트 실행 중이면 "슬라이드"라는 창을 활성화
+        WinActivate("슬라이드")
+    } else {
+        ; 실행 중이 아니면 새로 실행
+        Run("C:\Program Files\Microsoft Office\root\Office16\POWERPNT.EXE")
+    }
+} catch {
+    ; 오류가 나도 그냥 무시
+}}
 
 #!c::WinExist("ahk_exe code.exe") ? WinActivate() : Run("C:\Users\home\AppData\Local\Programs\Microsoft VS Code\Code.exe") ;vsCode
 ^+F12::WinExist("ahk_exe auto_keyboard.exe") ? WinActivate() : Run("C:\COIDEA smart keyboard\auto_keyboard.exe") ;매크로키보드설정
