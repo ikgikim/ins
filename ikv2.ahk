@@ -19,6 +19,13 @@ if !A_IsAdmin { ;관리자모드로 실행
     RunWait cmd
 }
 
+mps := [
+    {exe: "vlc.exe"},
+    {exe: "foobar2000.exe"},
+    {exe: "PotPlayerMini64.exe"}, ; 설치 환경에 따라 exe 이름 확인 필요
+    {exe: "AIMP.exe"}
+]
+
 +Space::Send("{VK15}")   ; 한/영 키 직접 전송
 
 
@@ -101,9 +108,16 @@ XButton1::
 ^#k::WinExist("ahk_exe kakaoTalk.exe") ? WinActivate() : Run("C:\Program Files (x86)\Kakao\KakaoTalk\KakaoTalk.exe") ;카톡
 
 ^#!p::WinExist("ahk_exe potplayer64.exe") ? WinActivate() : Run("C:\Program Files\DAUM\PotPlayer\PotPlayer64.exe") ;팟플레이어
-#!l::WinExist("ahk_exe vlc.exe") ? WinActivate() : Run("C:\Program Files\VideoLAN\VLC\vlc.exe") ;vlc
 
-
+#!l::
+{
+    for prog in mps {
+        if WinExist("ahk_exe " prog.exe) {
+            WinActivate("ahk_exe " prog.exe)
+            break ; 첫 번째 실행 중인 프로그램만 활성화
+        }
+    }
+}
 
 ^#n::WinExist("ahk_exe notepad.exe") ? WinActivate() : Run("notepad.exe") ;메모장
 ^#!n::WinExist("ahk_exe notepad++.exe") ? WinActivate() : Run("notepad++.exe") ;노트뿔뿔
