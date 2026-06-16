@@ -32,6 +32,11 @@ mps := [
 F15::Send "{PgUp}" ;페이지업
 F18::Send "{PgDn}" ;페이지다운
 
+~LButton & RButton::Send ("^w")
+~LButton & XButton1::Send "{PgDn}"
+~LButton & XButton2::Send "{PgUp}"
+
+
 ^#/:: !d ;주소창바로가기
 
 ^Left::Send "{Home}" ;HOME키
@@ -55,15 +60,6 @@ F18::Send "{PgDn}" ;페이지다운
 ^XButton2::Send("^n") ;마우스새창
 
 ^!XButton1::Send("!{F4}") ;마우스강종
-
-XButton1::
-{
-    static t := 0
-    if (A_TickCount - t > 1000) {
-        Send "{Browser_Back}"
-        t := A_TickCount
-    }
-}
 
 !WheelUp::Send "{PgUp}" ;Alt + WheelUp → PageUp
 
@@ -178,17 +174,16 @@ MouseClick("Left", 600, 600)
 
 ;특정프로그램시_액션
 
-#HotIf WinActive('ahk_exe chrome.exe')
-~LButton & RButton::Send ("^w") ;Chrome
-#HotIf
 
-#HotIf WinActive('ahk_exe brave.exe')
-~LButton & RButton::Send ("^w") ;Brave
-#HotIf
+;#HotIf WinActive('ahk_exe chrome.exe')
+;~LButton & RButton::Send ("^w") ;Chrome
+;#HotIf
 
-#HotIf WinActive('ahk_exe duckduckgo.exe')
-~LButton & RButton::Send ("^w") ;Duckduckgo
-#HotIf
+;#HotIf WinActive('ahk_exe brave.exe')
+;~LButton & RButton::Send ("^w") ;Brave
+;#HotIf
+;#HotIf WinActive('ahk_exe DuckDuckGo.exe')
+;#HotIf
 
 #HotIf WinActive('ahk_exe MonsterHunterWorld.exe')
 +1::Send("{Numpad1}") ;MonsterHunterWorld
