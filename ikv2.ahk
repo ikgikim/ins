@@ -12,7 +12,6 @@ if !A_IsAdmin { ;관리자모드로 실행
 
 ^#e::Edit() ;스크립트 수정
 
-
 ^#!u::{
     file := "c:\iks\ikv2.ahk"
     cmd := 'curl.exe -X PUT "https://ghins.iks0423.workers.dev/ikv2.ahk" --data-binary @"' . file . '"'
