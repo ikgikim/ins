@@ -31,12 +31,6 @@ mps := [
 F15::Send "{PgUp}" ;페이지업
 F18::Send "{PgDn}" ;페이지다운
 
-~LButton & RButton::Send ("^w")
-~LButton & XButton1::Send "{PgDn}"
-~LButton & XButton2::Send "{PgUp}"
-
-
-^#/:: !d ;주소창바로가기
 
 ^Left::Send "{Home}" ;HOME키
 
@@ -92,7 +86,7 @@ F18::Send "{PgDn}" ;페이지다운
 ^#numpad2::WinExist("ahk_exe brave.exe") ? WinActivate() : Run("brave.exe") ;브레이브실행
 ^#b::WinExist("ahk_exe brave.exe") ? WinActivate() : Run("brave.exe") ;브레이브실행
 
-^#numpad3::WinExist("ahk_exe duckduckgo.exe") ? WinActivate() : Run("duckduckgo.exe") ;덕덕고실행
+^#numpad3::WinExist("ahk_exe duckduckgo.exe") ? WinActivate() : Run("C:\iks\duckduckgo.bat") ;덕덕고실행
 
 ;프로그램실행(기타)
 !Space::WinExist("ahk_exe everything.exe") ? WinActivate() : Run(A_ProgramFiles "\Everything\Everything.exe") ;에브리띵실행
@@ -103,6 +97,7 @@ F18::Send "{PgDn}" ;페이지다운
 ^#k::WinExist("ahk_exe kakaoTalk.exe") ? WinActivate() : Run("C:\Program Files (x86)\Kakao\KakaoTalk\KakaoTalk.exe") ;카톡
 
 ^#!p::WinExist("ahk_exe potplayer64.exe") ? WinActivate() : Run("C:\Program Files\DAUM\PotPlayer\PotPlayer64.exe") ;팟플레이어
+^#!d::WinExist("ahk_exe Resolve.exe") ? WinActivate() : Run("C:\Program Files\Blackmagic Design\DaVinci Resolve\Resolve.exe") ;다빈치리졸브
 
 #!l::
 {
@@ -120,7 +115,6 @@ F18::Send "{PgDn}" ;페이지다운
 #!b::WinExist("ahk_exe Bitwarden.exe") ? WinActivate() : Run("C:\Program Files\Bitwarden\Bitwarden.exe") ;비트워든
 
 ^#!a::Run("C:\Program Files\AutoHotkey\WindowSpy.ahk") ;윈스파이
-
 
 #!p::{
 try {
@@ -173,16 +167,16 @@ MouseClick("Left", 600, 600)
 
 ;특정프로그램시_액션
 
+IsTargetApp() {
+    return WinActive("ahk_exe chrome.exe")
+        || WinActive("ahk_exe brave.exe")
+        || WinActive("ahk_exe duckduckgo.exe")
+}
 
-;#HotIf WinActive('ahk_exe chrome.exe')
-;~LButton & RButton::Send ("^w") ;Chrome
-;#HotIf
-
-;#HotIf WinActive('ahk_exe brave.exe')
-;~LButton & RButton::Send ("^w") ;Brave
-;#HotIf
-;#HotIf WinActive('ahk_exe DuckDuckGo.exe')
-;#HotIf
+#HotIf IsTargetApp()
+~LButton & RButton::Send ("^w")
+^#/::!d ;주소창바로가기
+#HotIf
 
 #HotIf WinActive('ahk_exe MonsterHunterWorld.exe')
 +1::Send("{Numpad1}") ;MonsterHunterWorld
@@ -193,7 +187,7 @@ MouseClick("Left", 600, 600)
 !2::Send("{Numpad6}") ;MonsterHunterWorld
 !3::Send("{Numpad7}") ;MonsterHunterWorld
 !4::Send("{Numpad8}") ;MonsterHunterWorld
-MButton::Send("{Esc}")
+;MButton::Send("{Esc}")
 #HotIf
 
 #HotIf WinActive('ahk_exe Warframe.x64.exe')
@@ -210,11 +204,15 @@ NumpadMult::{ ;POE2
     A_Clipboard := "/hideout"
     Send("^v{enter}")
 }
++e::Send("^{click}")
+
 
 :*:t=::{ ;POE2
     A_Clipboard := "TY have fun :)"
     Send("^v")
 }
+
+
 #HotIf
 
 #HotIf WinActive('ahk_exe ONCE_HUMAN.exe')
@@ -223,9 +221,12 @@ XButton2::Send("{v}") ;onceHuman
 q::f ;onceHuman
 +q::q ;onceHuman
 RButton::/ ;onceHuman
-+RButton::RButton ;onceHuman
+^RButton::RButton ;onceHuman
++RButton::ctrl ;onceHuman
 +e::3 ;onceHuman
 `::m ;onceHuman
+tab::Rbutton ;onceHuman
+
 #HotIf
 
 #HotIf WinActive('ahk_exe GTA5_Enhanced.exe')
@@ -238,6 +239,17 @@ numpaddot::del ;GTA5
 1::esc ;GTA5
 #HotIf
 
+#HotIf WinActive('ahk_exe MonsterHunterWilds.exe')
+
+Tab & r::m
+~Tab::tab
+Tab & e::'
+enter::space
+Rshift::esc
+;Tab & LButton::
+xbutton1::f
++e::mbutton
+#HotIf
 
 ^#!Home:: ;지금 모든 창 수면위로
 {
@@ -452,3 +464,5 @@ getSlideShowWin() {
     }
 }
 
+
+/* Numpad0 ~ Numpad9 : 숫자 0부터 9까지NumpadDiv : 나누기 기호 (/)NumpadMult : 곱하기 기호 (*)NumpadAdd : 더하기 기호 (+)NumpadSub : 빼기 기호 (-)NumpadEnter : 엔터 키NumpadDot : 소수점 */
