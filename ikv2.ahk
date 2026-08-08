@@ -171,6 +171,7 @@ IsTargetApp() {
     return WinActive("ahk_exe chrome.exe")
         || WinActive("ahk_exe brave.exe")
         || WinActive("ahk_exe duckduckgo.exe")
+        || WinActive("ahk_exe msedge.exe")
 }
 
 #HotIf IsTargetApp()
