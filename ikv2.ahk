@@ -26,7 +26,10 @@ mps := [
 ]
 
 +Space::Send("{VK15}")   ; 한/영 키 직접 전송
-
++Backspace::
+{
+    Send "{Home}+{End}{Delete}"
+}
 
 F15::Send "{PgUp}" ;페이지업
 F18::Send "{PgDn}" ;페이지다운
@@ -59,7 +62,7 @@ F18::Send "{PgDn}" ;페이지다운
 !WheelDown::Send "{PgDn}" ;Alt + WheelDown → PageDown
 
 
-^Esc::Run(A_WinDir "\System32\rundll32.exe powrprof.dll SetSuspendState") ;절전작동
+^#Esc::Run(A_WinDir "\System32\rundll32.exe powrprof.dll SetSuspendState") ;절전작동
 
 #!down::DllCall("SendMessage", "ptr", 0xFFFF, "uint", 0x112, "ptr", 0xF170, "ptr", 2) ;모니터만 끈다
 
@@ -109,8 +112,8 @@ F18::Send "{PgDn}" ;페이지다운
     }
 }
 
-^#n::WinExist("ahk_exe notepad.exe") ? WinActivate() : Run("notepad.exe") ;메모장
-^#!n::WinExist("ahk_exe notepad++.exe") ? WinActivate() : Run("notepad++.exe") ;노트뿔뿔
+^#!n::WinExist("ahk_exe notepad.exe") ? WinActivate() : Run("notepad.exe") ;메모장
+^#n::WinExist("ahk_exe notepad++.exe") ? WinActivate() : Run("notepad++.exe") ;노트뿔뿔
 #!g::WinExist("ahk_exe mspaint.exe") ? WinActivate() : Run("mspaint.exe") ;그림판
 #!b::WinExist("ahk_exe Bitwarden.exe") ? WinActivate() : Run("C:\Program Files\Bitwarden\Bitwarden.exe") ;비트워든
 
@@ -135,8 +138,10 @@ try {
 
 ;웹사이트바로가기(윈ALT)
 #!home::Run("https://google.com") ;구글검색
+#!k::Run("https://file.kiwi/ko") ;파일키위
 #!s::Run("https://docs.google.com/spreadsheets/u/0/") ;구글시트
 #!x::Run("https://www.perplexity.ai/") ;퍼플렉시티
+^#g::Run("https://gemini.google.com/app") ;제미나이
 #!n::Run("https://www.naver.com") ;네이버
 #!i::Run("https://gist.github.com/ikgikim/0cecab80889f092eb5b295f3a0b288c5") ;Gist바로가기
 ^#s::Run("https://send-anywhere.com/") ;샌드애니웨어
@@ -189,6 +194,7 @@ IsTargetApp() {
 !3::Send("{Numpad7}") ;MonsterHunterWorld
 !4::Send("{Numpad8}") ;MonsterHunterWorld
 ;MButton::Send("{Esc}")
+rshift::rbutton
 #HotIf
 
 #HotIf WinActive('ahk_exe Warframe.x64.exe')
@@ -218,15 +224,23 @@ NumpadMult::{ ;POE2
 
 #HotIf WinActive('ahk_exe ONCE_HUMAN.exe')
 XButton1::Send("{Esc}") ;onceHuman
-XButton2::Send("{v}") ;onceHuman
+XButton2::Send("{ctrl}") ;onceHuman
 q::f ;onceHuman
 +q::q ;onceHuman
 RButton::/ ;onceHuman
-^RButton::RButton ;onceHuman
-+RButton::ctrl ;onceHuman
++RButton::RButton ;onceHuman
+!RButton::ctrl ;onceHuman
 +e::3 ;onceHuman
 `::m ;onceHuman
 tab::Rbutton ;onceHuman
+^tab::tab
++WheelUp:: {
+    SendInput "{q}"
+}
+
++WheelDown:: {
+    SendInput "{e}"
+}
 
 #HotIf
 
